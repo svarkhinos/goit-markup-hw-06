@@ -11,6 +11,9 @@
   --icons-color: #afb1b8;
 
   --portfolio-list-gap: 30px;
+
+  --animation-duration: 250ms;
+  --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -104,8 +107,8 @@ img {
   color: var(--title-text-color);
 
   transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .site-nav .link::after {
@@ -121,8 +124,8 @@ img {
   opacity: 0;
 
   transition-property: opacity;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .site-nav .current::after,
@@ -146,8 +149,8 @@ img {
   color: var(--primary-text-color);
 
   transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 .contacts:hover,
 .contacts:focus {
@@ -220,6 +223,7 @@ img {
   border: none;
   outline: transparent;
   border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   background-color: var(--accent-color);
   color: var(--primary-white-color);
 }
@@ -243,6 +247,7 @@ img {
   width: 1px;
   height: 1px;
   margin: -1px;
+  overflow: hidden;
 }
 
 .benefits-item-title {
@@ -420,8 +425,8 @@ img {
   color: var(--icons-color);
 
   transition-property: color, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .action-link:hover,
@@ -459,8 +464,8 @@ img {
   color: var(--icons-color);
 
   transition-property: color, border;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 .client-list {
   display: flex;
@@ -511,9 +516,13 @@ address {
 .footer-list {
   display: flex;
 }
-.footer-list .footer-item:not(:last-child) {
+.footer-list .footer-item {
   margin-right: 70px;
 }
+.footer-item-submit {
+  margin-left: auto;
+}
+
 .footer-text {
   margin-top: 13px;
   margin-bottom: 20px;
@@ -533,6 +542,34 @@ address {
   color: var(--primary-white-color);
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+.footer-input {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.6);
+
+  width: 358px;
+  height: 50px;
+  padding: 15px 16px;
+  margin-right: 12px;
+
+  background-color: var(--dark-background-color);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.footer-input-submit {
+  display: flex;
+}
+
+.icon-send {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  fill: var(--primary-white-color);
+}
+
 /* портфолио*/
 
 .portfolio {
@@ -572,8 +609,8 @@ address {
   background-color: var(--light-background-color);
 
   transition-property: color, background-color, box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .filter-list .filter-item:not(:last-child) {
@@ -604,8 +641,8 @@ address {
   transform: translateY(100%);
 
   transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .portfolio-overlay-text {
@@ -643,8 +680,8 @@ address {
   display: block;
 
   transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 .portfolio-item .portfolio-link:hover .portfolio-overlay,
 .portfolio-item .portfolio-link:focus .portfolio-overlay {
@@ -686,8 +723,8 @@ address {
 
   opacity: 1;
   transition-property: opacity;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .backdrop.is-hidden {
@@ -714,8 +751,8 @@ address {
 
   transform: translate(-50%, -50%) scale(1);
   transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 
 .close {
@@ -732,8 +769,175 @@ address {
 
   border-radius: 50%;
   background-color: var(--primary-white-color);
+  fill: #000000;
+
+  transition-property: fill;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
 }
 .icon-close {
   width: 11px;
   height: 11px;
+}
+
+.close:hover,
+.close:focus {
+  fill: var(--accent-color);
+}
+
+.user-contacts {
+  padding-top: 2px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 12px;
+
+  color: var(--title-text-color);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+
+  letter-spacing: 0.01em;
+}
+
+.form-field-comment {
+  margin-bottom: 20px;
+}
+
+.form-fild-icon .modal-input {
+  width: 100%;
+}
+
+.form-field label {
+  margin-bottom: 4px;
+}
+
+.form-field input,
+.input-comment {
+  height: 40px;
+  padding: 11px 12px 11px 42px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  transition-property: border-color;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
+}
+
+.form-field,
+.form-fild-icon {
+  position: relative;
+}
+
+.form-fild-icon .input-icon {
+  position: absolute;
+  height: 18px;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--title-text-color);
+
+  transition-property: color;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
+}
+
+.input-icon-modal {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.form-field input:focus,
+.input-comment:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-field input:focus + .input-icon {
+  color: var(--accent-color);
+}
+
+.user-contacts .button {
+  transition-property: box-shadow;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
+}
+
+.user-contacts .button:hover,
+.user-contacts .button:focus {
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+.input-comment {
+  resize: none;
+  height: 120px;
+  padding: 12px 16px;
+}
+
+.input-comment::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.contract {
+  color: var(--accent-color);
+}
+
+.modal-link {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+.form-field-check input[type='checkbox'] {
+  width: 40px;
+}
+
+.label-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+
+  margin-bottom: 30px;
+}
+
+.icon-check {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+
+  transition-property: background-color, border-color;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--animation-timing-function);
+}
+
+.modal-checkbox:checked ~ .icon-check {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
+  background-origin: border-box;
 }
